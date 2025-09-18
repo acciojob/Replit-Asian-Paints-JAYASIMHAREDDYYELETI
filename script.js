@@ -26,6 +26,7 @@ const form = document.getElementById("color-Form");
     }
 
     function clearBC() {
-      for (const box of boxes) {
+      boxes.forEach(box => {
         box.style.backgroundColor = "transparent";
-      }
+      });
+    }
