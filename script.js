@@ -1,6 +1,6 @@
 const form = document.getElementById("color-Form");
     const boxes = document.querySelectorAll(".grid-item");
-    const resetBtn = document.getElementById("Reset");
+    const resetBtn = document.getElementById("reset_button");
 
     form.addEventListener("submit", getAndApplyColor);
     resetBtn.addEventListener("click", clearBC);
@@ -22,9 +22,6 @@ const form = document.getElementById("color-Form");
       const targetBox = document.getElementById(String(boxNum));
       if (targetBox) {
         targetBox.style.backgroundColor = selectedColor;
-      } else {
-        // fallback / safety
-        alert("Target box not found.");
       }
     }
 
@@ -32,4 +29,3 @@ const form = document.getElementById("color-Form");
       for (const box of boxes) {
         box.style.backgroundColor = "transparent";
       }
-    }
