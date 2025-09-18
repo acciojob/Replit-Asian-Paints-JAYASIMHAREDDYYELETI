@@ -1,4 +1,3 @@
-//your JS code here. If required.
 const form = document.getElementById("color-Form");
     const boxes = document.querySelectorAll(".grid-item");
     const resetBtn = document.getElementById("Reset");
@@ -8,17 +7,24 @@ const form = document.getElementById("color-Form");
 
     function getAndApplyColor(e) {
       e.preventDefault();
-      const selectedBox = document.getElementById("block_id").value;
-      const selectedColor = document.getElementById("colour_id").value;
+      const selectedBox = document.getElementById("block_id").value.trim();
+      const selectedColor = document.getElementById("colour_id").value.trim();
 
-      if (parseInt(selectedBox) > 0 && parseInt(selectedBox) < 10) {
-        form.reset();
-        clearBC();
-        const targetBox = document.querySelector(`[data-id='${selectedBox}']`);
-        targetBox.style.backgroundColor = selectedColor;
-        console.log(selectedBox, selectedColor);
-      } else {
+      const boxNum = parseInt(selectedBox, 10);
+      if (!Number.isInteger(boxNum) || boxNum < 1 || boxNum > 9) {
         alert("Enter valid Number between 1 and 9");
+        return;
+      }
+
+      form.reset();
+      clearBC();
+
+      const targetBox = document.getElementById(String(boxNum));
+      if (targetBox) {
+        targetBox.style.backgroundColor = selectedColor;
+      } else {
+        // fallback / safety
+        alert("Target box not found.");
       }
     }
 

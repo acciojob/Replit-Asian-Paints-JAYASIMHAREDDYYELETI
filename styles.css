@@ -11,10 +11,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      user-select: none;
     }
     .actions {
       display: flex;
       justify-content: center;
       margin-top: 50px;
       gap: 1rem;
+      align-items: center;
     }
